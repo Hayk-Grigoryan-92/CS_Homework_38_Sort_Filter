@@ -51,10 +51,10 @@ namespace lesson38
             return result;
         }
 
-        public static List<T> Sort<T>(Comparison<T> comparison, List<T> list)
+        public static List<T> Sort<T>(Func<T, T, int> comparer, List<T> list)
         {
             List<T> sortedList = new List<T>(list);
-            sortedList.Sort(comparison);
+            sortedList.Sort((x, y) => comparer(x, y));
             return sortedList;
         }
     }
